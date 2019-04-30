@@ -1,24 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import 'formol/lib/clean.css';
+import Formol, { Field } from 'formol';
+
 function App() {
+  const onSubmit = ({ login, password }) => console.log(login, password);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3>Formol Starter Pack</h3>
+      <div className="form-container">
+        <Formol onSubmit={onSubmit} className="center">
+          <Field>Login</Field>
+          <Field type="password-strength">Password</Field>
+        </Formol>
+      </div>
     </div>
   );
 }
